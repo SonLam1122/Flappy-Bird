@@ -7,44 +7,37 @@ public class PipeMove : MonoBehaviour
     public Transform topPipe;
     public Transform bottomPipe;
 
-    public float minTopY = 2.5f;
-    public float maxTopY = 5.5f;
+    public float mintopY = 2.5f;
+    public float maxtopY = 5.5f;
 
     public float gap = 9f;
 
-    // Xóa pipe khi qua màn hình
-    public float destroyPoint = -13f;
+    // vij tri xoa pipe
+    public float destroyPosition = -13f;
 
-    void Start()
-    {
+    void Start(){
         RandomPipe();
     }
 
-    void Update()
-    {
-        // Di chuyển sang trái
-        transform.position +=
-            Vector3.left * speed * Time.deltaTime;
+    void Update(){
+        // di chuyen ve ben trai
+        transform.position += Vector3.left * speed * Time.deltaTime;
 
-        // Xóa pipe
-        if (transform.position.x <= destroyPoint)
-        {
+        // delete pipe khi di qua destroy position
+        if(transform.position.x <= destroyPosition){
             Destroy(gameObject);
         }
     }
 
-    void RandomPipe()
-    {
-        // Random Y cho pipe trên
-        float topY =
-            Random.Range(minTopY, maxTopY);
+    void RandomPipe(){
 
-        // Pipe trên
-        topPipe.localPosition =
-            new Vector3(0, topY, 0);
+        // random y cho top pipe
+        float topY = Random.Range(mintopY, maxtopY);
 
-        // Pipe dưới
-        bottomPipe.localPosition =
-            new Vector3(0, topY - gap, 0);
+        // pipe tren
+        topPipe.localPosition = new Vector3(0, topY, 0);
+
+        // pipe duoi
+        bottomPipe.localPosition = new Vector3(0, topY - gap, 0);
     }
 }

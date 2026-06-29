@@ -7,30 +7,28 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOverUI;
 
-    void Start()
-    {
-        // Pause game lúc mới vào
+    void Start(){
+
+        // dung game luc moi vao
         Time.timeScale = 0f;
 
         startPanel.SetActive(true);
-
         gameOverUI.SetActive(false);
     }
 
-    // START GAME
-    public void StartGame()
-    {
+    public void StartGame(){
+
         startPanel.SetActive(false);
 
+        // cho phep game chay
         Time.timeScale = 1f;
     }
 
-    // RESTART GAME
-    public void RestartGame()
-    {
+    public void RestartGame(){
+
         Time.timeScale = 1f;
 
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().buildIndex);
+        // tai lai scene hien tai
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

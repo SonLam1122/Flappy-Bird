@@ -6,21 +6,13 @@ public class PipeSpawner : MonoBehaviour
 
     public float spawnTime = 4f;
 
-    public float spawnPointX = 13f;
+    public float spawnPointX = 23f;
 
-    void Start()
-    {
-        InvokeRepeating(
-            nameof(SpawnPipe),
-            0f,
-            spawnTime);
+    void Start(){
+        InvokeRepeating(nameof(SpawnPipe), 0f, spawnTime);
     }
 
-    void SpawnPipe()
-    {
-        Instantiate(
-            pipePrefab,
-            new Vector3(spawnPointX, 0f, 0f),
-            Quaternion.identity);
+    private void SpawnPipe(){
+        Instantiate(pipePrefab, new Vector3(spawnPointX, 0f, 0f), Quaternion.identity);
     }
 }
